@@ -34,34 +34,15 @@ class HomeController extends Controller
         $request->validate([
             'error_message' => 'required'
         ]);
-        if(isset($request->jostMe)){
-            $allErrors = MyErrors::all()->where('lang_id' , '=' ,$request->lang_id)
-                                        ->where('user_id' , '=' , Auth::id());
-        }elseif (!isset($request->jostMe)){
-            $allErrors = MyErrors::all()->where('lang_id' , '=' ,$request->lang_id);
-        }
 
-        $myErrors = $this->replaceError($request ,$allErrors );
+
+        isset($request->jostMe) ?  $allErrors = MyErrors::where('lang_id' ,$request->lang_id)
+            ->where('user_id' , Auth::id())->get() : $allErrors = MyErrors::where('error_message' , "LIKE" , "%" . $request->error_message ."%")->get();
 
         $langCoding = LangCoding::all();
-        return view('home' , compact('myErrors' , 'langCoding'));
+        return view('home' , compact('allErrors' , 'langCoding'));
     }
 
-    protected function replaceError($request , $errorMessage){
-        $myError = [];
-        $req = str_replace(' ' , '' ,$request->error_message);
 
-        foreach ($errorMessage as $error){
-
-            $er = str_replace(' ','' , $error->error_message);
-
-            if($req == $er){
-
-                array_push($myError , $error);
-            }
-        }
-
-        return $myError;
-    }
 
 }

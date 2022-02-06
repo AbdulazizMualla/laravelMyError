@@ -44,8 +44,8 @@
         </div>
         <hr>
         <div class="col-md-12">
-            @if(isset($myErrors))
-                @forelse($myErrors as $myError)
+            @if(isset($allErrors))
+                @forelse($allErrors as $myError)
                     <div class="card mb-3">
                         <div class="card-header">{{$myError->user->name}}</div>
                         <div class="card-body">
