@@ -10,6 +10,6 @@ class DevController extends Controller
     {
         $output = shell_exec('git pull 2>&1');
         echo '<per>';
-        echo $output;
+        return [$output];
     }
 }
