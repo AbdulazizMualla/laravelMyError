@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 class DevController extends Controller
 {
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        $output = shell_exec('git pull 2>&1');
-        echo '<per>';
-        return [$output];
+        $output = shell_exec('git pull');
+        return response()->json($output);
     }
 }
