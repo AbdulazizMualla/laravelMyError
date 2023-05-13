@@ -8,7 +8,8 @@ class DevController extends Controller
 {
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $output = shell_exec('sudo git pull');
+        $output = shell_exec('git pull');
+        exec('git pull');
         return response()->json($output);
     }
 }
