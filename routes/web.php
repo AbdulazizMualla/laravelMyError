@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DevController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home' , 'App\Http\Controllers\HomeController@search')->name('search');
 Route::resource('myerrors' , 'App\Http\Controllers\MyErrorsController');
-Route::any('/dev-update' , [\App\Http\Controllers\DevController::class , 'index']);
+Route::any('/dev-update' , [DevController::class , 'index']);
