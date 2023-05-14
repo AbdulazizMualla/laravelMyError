@@ -11,7 +11,6 @@ class DevController extends Controller
     {
         chdir('/Applications/XAMPP/xamppfiles/htdocs/laravelMyError');
         $output = shell_exec('git pull 2>&1');
-        //exec('git pull');
         return response()->json($output);
     }
 }
