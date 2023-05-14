@@ -38,7 +38,7 @@
             @endif--}}
                 <section id="hero" class="d-flex align-items-center">
                     <div class="container">
-                        <h1 class="text-secondary "><u>{{config('app_name' , 'My Errors')}}</u></h1>
+                        <h1 class="text-danger "><u>{{config('app_name' , 'My Errors')}}</u></h1>
                         <div class="row">
                             <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                                 <h1>{{__('Special for programmers')}} </h1>
