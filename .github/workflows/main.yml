@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Laravel dependencies
-        # run: composer install
+        run: composer install
 
       # - name: Generate Laravel key
       #   run: php artisan key:generate
