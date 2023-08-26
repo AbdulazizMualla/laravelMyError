@@ -23,7 +23,6 @@ jobs:
             git checkout main
             git pull origin main
 #            composer install --no-dev --optimize-autoloader
-            composer install
 #            php artisan migrate --force
             php artisan config:cache
             php artisan route:clear
