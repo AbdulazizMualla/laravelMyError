@@ -21,13 +21,15 @@ jobs:
       - name: Deploy MyError App
         # uses: appleboy/ssh-action@v1.0.0
         run: |
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          # password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd /var/www/myError/
-            rsync -a ./ ./
-            php artisan migrate
-            php artisan cache:clear
+          # host: ${{ secrets.SERVER_HOST }}
+          # username: ${{ secrets.SERVER_USERNAME }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # # password: ${{ secrets.PASSWORD }}
+          # port: ${{ secrets.PORT }}
+          # script: |
+          cd /var/www/myError/
+          rsync -a ./ ./
+          php artisan migrate
+          php artisan cache:clear
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
