@@ -19,11 +19,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /var/www/html/activid-api
-            git checkout production
-            git pull origin production
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
+            cd /var/www/myError
+            git checkout main
+            git pull origin main
+#            composer install --no-dev --optimize-autoloader
+            composer install
+#            php artisan migrate --force
             php artisan config:cache
             php artisan route:clear
             php artisan route:cache
