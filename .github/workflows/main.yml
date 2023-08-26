@@ -22,8 +22,6 @@ jobs:
             cd /var/www/myError
             git checkout main
             git pull origin main
-#            composer install --no-dev --optimize-autoloader
-#            php artisan migrate --force
             php artisan config:cache
             php artisan route:clear
             php artisan route:cache
