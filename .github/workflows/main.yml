@@ -20,8 +20,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/myError
-            git checkout main
-            git pull origin main
+            git pull
             php artisan config:cache
             php artisan route:clear
             php artisan route:cache
