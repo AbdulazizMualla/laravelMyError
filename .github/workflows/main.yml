@@ -20,6 +20,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/myError
+            git config --global user.email "amgad74@hotmail.com"
+            git config --global user.name "AbdulazizMualla"
             git pull
             php artisan config:cache
             php artisan route:clear
