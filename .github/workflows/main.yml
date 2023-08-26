@@ -2,7 +2,7 @@ name: MyError Production Workflow
 on:
   push:
     branches:
-      - production
+      - main
 
 jobs:
   deploy:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Deployment
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -22,7 +22,7 @@ jobs:
             cd /var/www/html/activid-api
             git checkout production
             git pull origin production
-            composer install --no-dev --optimize-autoloader            
+            composer install --no-dev --optimize-autoloader
             php artisan migrate --force
             php artisan config:cache
             php artisan route:clear
